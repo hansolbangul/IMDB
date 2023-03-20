@@ -1,38 +1,33 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# IMDB \_ Clone Coding
 
-## Getting Started
+NEXT.JS 13 을 활용하여 IMDB Clone Coding 을 해보자!
 
-First, run the development server:
+<!-- [Demo Blog](https://morethan-log.vercel.app) | [Demo Resume](https://morethan-log.vercel.app/resume) -->
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Summary
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Implement DarkMode and WhiteMode**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Tailwind css를 활용해서 다크모드, 화이트모드 구현하기
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+**Fetch data from TMDB API in the home page**
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- 영화 API를 불러와 UI 그리기
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+**Loding Effect**
 
-## Learn More
+- Loding 상태를 체크해 UI 그리기
 
-To learn more about Next.js, take a look at the following resources:
+**Deploy to Vercel**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Vercel 에 배포하기
+- 배포한 웹 사이트를 커스텀 도메인에 연결하기
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<br />
 
-## Deploy on Vercel
+## Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Using Recoil**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Recoil을 사용해 Data fetch 및 캐싱
+- Recoil Selector를 활용해 데이터 정제
