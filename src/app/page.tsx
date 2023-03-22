@@ -1,5 +1,6 @@
 import { Movie } from "@/types/movie";
 import Result from "./components/Result";
+import { BASE_URL } from "@/utils/url";
 
 export const metadata = {
   title: "IMDB Clone",
@@ -10,7 +11,6 @@ type Props = {
   searchParams: any;
 };
 
-const BASE_URL = "https://api.themoviedb.org/3/";
 const API_KEY = process.env.API_KEY;
 
 const getFetch = async ({ searchParams }: Props): Promise<Movie[]> => {
