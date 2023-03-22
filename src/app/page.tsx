@@ -8,10 +8,14 @@ export const metadata = {
 };
 
 type Props = {
-  searchParams: any;
+  searchParams: {
+    genre: string;
+  };
 };
 
 const API_KEY = process.env.API_KEY;
+
+export const dynamic = "force-dynamic";
 
 const getFetch = async ({ searchParams }: Props): Promise<Movie[]> => {
   const genre = searchParams.genre || "fetchTrending";
