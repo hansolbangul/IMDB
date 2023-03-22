@@ -11,6 +11,8 @@ export type Movie = {
   release_date: string;
   title: string;
   video: boolean;
+  name?: string;
   vote_average: number;
+  first_air_date?: string;
   vote_count: number;
 };

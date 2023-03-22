@@ -34,7 +34,7 @@ export default async function Home({ searchParams }: Props) {
 
   return (
     <div>
-      <Result result={results} />
+      <Result results={results} />
     </div>
   );
 }
