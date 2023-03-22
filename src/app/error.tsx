@@ -9,7 +9,7 @@ type Props = {
 
 export default function Error({ error, reset }: Props) {
   useEffect(() => {
-    console.log(error);
+    // console.log(error);
   }, [error]);
   return (
     <div className="text-center mt-10 ">
