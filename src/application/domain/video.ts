@@ -9,7 +9,17 @@ export class Video {
   first_air_date?: string;
   vote_count: string;
 
-  constructor({ id, title, name, poster_path, backdrop_path, release_date, first_air_date, overview, vote_count }: Video) {
+  constructor({
+    id,
+    title,
+    name,
+    poster_path,
+    backdrop_path,
+    release_date,
+    first_air_date,
+    overview,
+    vote_count,
+  }: Video) {
     this.id = id;
     this.title = title;
     this.name = name;
@@ -59,7 +69,17 @@ export class VideoDetail extends Video {
     videoKeyword,
     videoImages,
   }: VideoDetailType) {
-    super({ id, title, name, poster_path, backdrop_path, release_date, first_air_date, overview, vote_count });
+    super({
+      id,
+      title,
+      name,
+      poster_path,
+      backdrop_path,
+      release_date,
+      first_air_date,
+      overview,
+      vote_count,
+    });
     this.videoReview = videoReview;
     this.similarVideos = similarVideos;
     this.videoKeyword = videoKeyword;
@@ -69,7 +89,7 @@ export class VideoDetail extends Video {
 
 export class VideoReview {
   author: string;
-  author_detail: {
+  author_details: {
     name: string;
     username: string;
     avatar_path: null | string;
@@ -80,9 +100,17 @@ export class VideoReview {
   id: string;
   updated_at: string;
   url: string;
-  constructor({ author, author_detail, content, create_at, id, updated_at, url }: VideoReview) {
+  constructor({
+    author,
+    author_details,
+    content,
+    create_at,
+    id,
+    updated_at,
+    url,
+  }: VideoReview) {
     this.author = author;
-    this.author_detail = author_detail;
+    this.author_details = author_details;
     this.content = content;
     this.create_at = create_at;
     this.id = id;

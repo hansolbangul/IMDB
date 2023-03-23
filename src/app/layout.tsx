@@ -21,9 +21,7 @@ export default function RootLayout({
           <Header />
           <Navbar />
           <SearchBox />
-          <div className="max-w-6xl mx-auto">
-            {children}
-          </div>
+          <div className="max-w-6xl mx-auto">{children}</div>
         </Providers>
       </body>
     </html>
