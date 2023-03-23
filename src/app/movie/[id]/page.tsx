@@ -1,6 +1,8 @@
 import { MovieDetail } from "@/types/movie";
 import { BASE_URL } from "@/utils/url";
+import { Metadata } from "next";
 import Image from "next/image";
+
 
 type Props = {
   params: {
@@ -24,7 +26,7 @@ export default async function MoviePage({ params: { id } }: Props) {
 
   return (
     <div className="w-full">
-      <div className="p-4 md:pt-8 flex flex-col md:flex-row items-center content-center max-w-6xl mx-auto md:space-x-6">
+      <div className="p-4 md:pt-8 flex flex-col md:flex-row items-center content-center md:space-x-6">
         <Image
           className=" rounded-lg"
           placeholder="blur"
