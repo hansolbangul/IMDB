@@ -17,6 +17,18 @@ export type Movie = {
   vote_count: number;
 };
 
+type Video = {
+  id: number;
+  backdrop_path?: string | null;
+  poster_path?: string | null;
+  overview: string;
+  title?: string;
+  name?: string;
+  release_date?: string;
+  first_air_date?: string;
+  vote_count: string;
+};
+
 export type MovieDetail = {
   adult: boolean;
   backdrop_path: string;

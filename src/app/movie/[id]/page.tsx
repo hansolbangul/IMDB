@@ -1,3 +1,6 @@
+import { VideoDetail } from "@/application/domain/video";
+import { VideoService } from "@/application/services/videoService";
+import { VideoAPIService } from "@/networks/videoAPIService";
 import { MovieDetail } from "@/types/movie";
 import { BASE_URL } from "@/utils/url";
 import { Metadata } from "next";
@@ -12,17 +15,23 @@ type Props = {
 
 const API_KEY = process.env.API_KEY;
 
-const getMovie = async (movieId: number): Promise<MovieDetail> => {
-  const res = await fetch(
-    `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}&language=ko-KR`
-  );
+// const getMovie = async (movieId: number): Promise<MovieDetail> => {
+//   const res = await fetch(
+//     `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}&language=ko-KR`
+//   );
 
-  return await res.json();
+//   return await res.json();
+// };
+
+const getMovie = async (movieId: number): Promise<VideoDetail> => {
+  const service = new VideoService(new VideoAPIService());
+  return await service.getVideoDetails(movieId)
 };
 
 export default async function MoviePage({ params: { id } }: Props) {
   const movieId = id;
   const movie = await getMovie(movieId);
+  // console.log(movie)
 
   return (
     <div className="w-full">

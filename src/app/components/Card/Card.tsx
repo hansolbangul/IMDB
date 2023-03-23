@@ -3,9 +3,10 @@ import { FiThumbsUp } from "react-icons/fi";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { Video } from "@/application/domain/video";
 
 type Props = {
-  result: Movie;
+  result: Video;
 };
 
 export default function Card({ result }: Props) {

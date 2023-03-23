@@ -1,6 +1,7 @@
 import Result from "@/app/components/Result";
-import { Movie } from "@/types/movie";
-import { BASE_URL } from "@/utils/url";
+import { Video } from "@/application/domain/video";
+import { VideoService } from "@/application/services/videoService";
+import { VideoAPIService } from "@/networks/videoAPIService";
 import React from "react";
 
 type Props = {
@@ -9,18 +10,25 @@ type Props = {
   };
 };
 
-const getSearchMovie = async ({ params }: Props): Promise<Movie[]> => {
-  const res = await fetch(
-    `${BASE_URL}search/movie?api_key=${process.env.API_KEY}&query=${params.searchTerm}&language=ko-KR&page=1&include_adult=false`
-  );
+// const getSearchMovie = async ({ params }: Props): Promise<Movie[]> => {
+//   const res = await fetch(
+//     `${BASE_URL}search/movie?api_key=${process.env.API_KEY}&query=${params.searchTerm}&language=ko-KR&page=1&include_adult=false`
+//   );
 
-  if (!res.ok) {
-    throw new Error("Error fetching data");
-  }
+//   if (!res.ok) {
+//     throw new Error("Error fetching data");
+//   }
 
-  const data = await res.json();
+//   const data = await res.json();
 
-  return data.results;
+//   return data.results;
+// };
+
+
+const getSearchMovie = async ({ params }: Props): Promise<Video[]> => {
+  const service = new VideoService(new VideoAPIService());
+  const video = await service.searchVideos(params.searchTerm)
+  return video
 };
 
 export default async function SearchPage({ params }: Props) {

@@ -1,9 +1,10 @@
+import { Video } from "@/application/domain/video";
 import { Movie } from "@/types/movie";
 import React from "react";
 import Card from "./Card/Card";
 
 type Props = {
-  results: Movie[];
+  results: Video[];
 };
 
 export default function Result({ results }: Props) {
