@@ -21,7 +21,6 @@ NEXT.JS 13 을 활용하여 IMDB Clone Coding 을 해보자!
 **Deploy to Vercel**
 
 - Vercel 에 배포하기
-- 배포한 웹 사이트를 커스텀 도메인에 연결하기
 
 <br />
 
