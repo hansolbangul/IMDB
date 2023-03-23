@@ -31,3 +31,8 @@ NEXT.JS 13 을 활용하여 IMDB Clone Coding 을 해보자!
 
 - Recoil을 사용해 Data fetch 및 캐싱
 - Recoil Selector를 활용해 데이터 정제
+
+**DDD**
+
+- Domain 분리, service, apiService를 통한 비즈니스 로직 분리
+- service + Recoil 캐싱
