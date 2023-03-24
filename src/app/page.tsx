@@ -13,6 +13,7 @@ export const metadata = {
 type Props = {
   searchParams: {
     genre: string;
+    type: string;
   };
 };
 
@@ -36,10 +37,11 @@ export const dynamic = "force-dynamic";
 
 const getFetch = async ({ searchParams }: Props): Promise<Video[]> => {
   const service = new VideoService(new VideoAPIService());
+  const type = searchParams.type || "movie";
   const genre = searchParams.genre || "fetchTrending";
-  const fetchType = genre === "fetchTopRated" ? "movie/top_rated" : "trending/all/week"
-  const data = await service.getVideos({fetchType, page: 1})
-  return data
+  const fetchType = genre === "fetchTopRated" ? `${type}/top_rated` : `trending/${type}/week`;
+  const data = await service.getVideos({ fetchType, page: 1 });
+  return data;
 };
 
 export default async function Home({ searchParams }: Props) {
@@ -47,7 +49,7 @@ export default async function Home({ searchParams }: Props) {
 
   return (
     <div>
-      <Result results={results} />
+      <Result type={searchParams.type || "movie"} results={results} />
     </div>
   );
 }

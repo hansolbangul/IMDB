@@ -7,12 +7,13 @@ import { Video } from "@/application/domain/video";
 
 type Props = {
   result: Video;
+  type: string;
 };
 
-export default function Card({ result }: Props) {
+export default function Card({ result, type }: Props) {
   return (
     <div className="cursor-pointer sm:p-3 sm:hover:shadow-slate-400 sm:shadow-md rounded-lg sm:border sm:bolder-slate-400 sm:m-2 transition-shadow duration-200">
-      <Link href={`/movie/${result.id}`}>
+      <Link href={`/${type}/${result.id}`}>
         <Image
           className="sm:rounded-t-lg hover:opacity-80 transition-opacity duration-200"
           placeholder="blur"
