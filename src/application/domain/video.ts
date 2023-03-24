@@ -9,17 +9,7 @@ export class Video {
   first_air_date?: string;
   vote_count: string;
 
-  constructor({
-    id,
-    title,
-    name,
-    poster_path,
-    backdrop_path,
-    release_date,
-    first_air_date,
-    overview,
-    vote_count,
-  }: Video) {
+  constructor({ id, title, name, poster_path, backdrop_path, release_date, first_air_date, overview, vote_count }: Video) {
     this.id = id;
     this.title = title;
     this.name = name;
@@ -98,17 +88,9 @@ export class VideoReview {
   content: string;
   create_at: string;
   id: string;
-  updated_at: string;
+  updated_at: Date;
   url: string;
-  constructor({
-    author,
-    author_details,
-    content,
-    create_at,
-    id,
-    updated_at,
-    url,
-  }: VideoReview) {
+  constructor({ author, author_details, content, create_at, id, updated_at, url }: VideoReview) {
     this.author = author;
     this.author_details = author_details;
     this.content = content;
@@ -120,12 +102,11 @@ export class VideoReview {
 }
 
 export class VideoKeyword {
-  keywords: {
-    id: number;
-    name: string;
-  };
-  constructor({ keywords }: VideoKeyword) {
-    this.keywords = keywords;
+  id: number;
+  name: string;
+  constructor({ id, name }: VideoKeyword) {
+    this.id = id;
+    this.name = name;
   }
 }
 
