@@ -9,7 +9,17 @@ export class Video {
   first_air_date?: string;
   vote_count: string;
 
-  constructor({ id, title, name, poster_path, backdrop_path, release_date, first_air_date, overview, vote_count }: Video) {
+  constructor({
+    id,
+    title,
+    name,
+    poster_path,
+    backdrop_path,
+    release_date,
+    first_air_date,
+    overview,
+    vote_count,
+  }: Video) {
     this.id = id;
     this.title = title;
     this.name = name;
@@ -46,7 +56,13 @@ export class VideoDetail {
   similarVideos: SimilarVideo[];
   videoKeyword: VideoKeyword[];
   videoImages: VideoImages;
-  constructor({ video, videoReview, similarVideos, videoKeyword, videoImages }: VideoDetailType) {
+  constructor({
+    video,
+    videoReview,
+    similarVideos,
+    videoKeyword,
+    videoImages,
+  }: VideoDetailType) {
     this.video = video;
     this.videoReview = videoReview;
     this.similarVideos = similarVideos;
@@ -68,7 +84,15 @@ export class VideoReview {
   id: string;
   updated_at: Date;
   url: string;
-  constructor({ author, author_details, content, create_at, id, updated_at, url }: VideoReview) {
+  constructor({
+    author,
+    author_details,
+    content,
+    create_at,
+    id,
+    updated_at,
+    url,
+  }: VideoReview) {
     this.author = author;
     this.author_details = author_details;
     this.content = content;
@@ -114,6 +138,8 @@ export class SimilarVideo {
   video: boolean;
   vote_average: number;
   vote_count: number;
+  first_air_date?: string;
+  name?: string;
   constructor({
     adult,
     backdrop_path,
@@ -129,7 +155,11 @@ export class SimilarVideo {
     video,
     vote_average,
     vote_count,
+    first_air_date,
+    name,
   }: SimilarVideo) {
+    this.name = name;
+    this.first_air_date = first_air_date;
     this.adult = adult;
     this.backdrop_path = backdrop_path;
     this.genre_ids = genre_ids;

@@ -5,17 +5,19 @@ import { IMG_BASE_URL } from "@/utils/url";
 import Image from "next/image";
 import React, { use } from "react";
 
-type Props = { id: number; type: string };
+type Props = {
+  reviews: VideoReview[];
+};
 
-export default function Reviews({ id, type }: Props) {
-  const service = new VideoService(new VideoAPIService());
-  const reviews = use(service.getVideoReviews(id, type));
-
+export default function Reviews({ reviews }: Props) {
   return (
     <div className="p-2">
       <span className=" font-bold">{reviews.length} 개의 리뷰</span>
       {reviews.map((review) => (
-        <div className=" py-3 my-2 border-y border-slate-400 space-y-2" key={review.id}>
+        <div
+          className=" py-3 my-2 border-y border-slate-400 space-y-2"
+          key={review.id}
+        >
           <div className="flex items-center space-x-3">
             <div className="w-14 h-14 flex justify-center items-center overflow-hidden rounded-full">
               <Image
@@ -34,8 +36,14 @@ export default function Reviews({ id, type }: Props) {
               />
             </div>
             <div>
-              <p>{review.author_details?.username || review.author_details?.name}</p>
-              <p className=" text-sm">{Intl.DateTimeFormat("en", { dateStyle: "full" }).format(new Date(review.updated_at))}</p>
+              <p>
+                {review.author_details?.username || review.author_details?.name}
+              </p>
+              <p className=" text-sm">
+                {Intl.DateTimeFormat("en", { dateStyle: "full" }).format(
+                  new Date(review.updated_at)
+                )}
+              </p>
             </div>
           </div>
           <div dangerouslySetInnerHTML={{ __html: review.content }} />

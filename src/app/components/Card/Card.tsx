@@ -3,10 +3,10 @@ import { FiThumbsUp } from "react-icons/fi";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { Video } from "@/application/domain/video";
+import { SimilarVideo, Video } from "@/application/domain/video";
 
 type Props = {
-  result: Video;
+  result: Video | SimilarVideo;
   type: string;
 };
 
@@ -19,7 +19,9 @@ export default function Card({ result, type }: Props) {
           placeholder="blur"
           blurDataURL="/spinner.svg"
           alt="image in not available"
-          src={`https://image.tmdb.org/t/p/original/${result.backdrop_path || result.poster_path}`}
+          src={`https://image.tmdb.org/t/p/original/${
+            result.backdrop_path || result.poster_path
+          }`}
           width={500}
           height={300}
           style={{
@@ -29,7 +31,9 @@ export default function Card({ result, type }: Props) {
         ></Image>
         <div className="p-2">
           <p className="line-clamp-2 text-md">{result.overview}</p>
-          <h2 className="truncate text-lg font-bold">{result.title || result.name}</h2>
+          <h2 className="truncate text-lg font-bold">
+            {result.title || result.name}
+          </h2>
           <p className="flex items-center">
             {result.release_date || result.first_air_date}
             <FiThumbsUp className="h-5 mr-1 ml-3" />
