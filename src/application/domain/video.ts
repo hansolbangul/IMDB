@@ -32,44 +32,22 @@ type Images = {
   width: number;
 };
 
-type VideoDetailType = Video & {
+type VideoDetailType = {
+  video: Video;
   videoReview: VideoReview[];
   similarVideos: SimilarVideo[];
   videoKeyword: VideoKeyword[];
   videoImages: VideoImages;
 };
 
-export class VideoDetail extends Video {
+export class VideoDetail {
+  video: Video;
   videoReview: VideoReview[];
   similarVideos: SimilarVideo[];
   videoKeyword: VideoKeyword[];
   videoImages: VideoImages;
-  constructor({
-    id,
-    title,
-    name,
-    poster_path,
-    backdrop_path,
-    release_date,
-    first_air_date,
-    overview,
-    vote_count,
-    videoReview,
-    similarVideos,
-    videoKeyword,
-    videoImages,
-  }: VideoDetailType) {
-    super({
-      id,
-      title,
-      name,
-      poster_path,
-      backdrop_path,
-      release_date,
-      first_air_date,
-      overview,
-      vote_count,
-    });
+  constructor({ video, videoReview, similarVideos, videoKeyword, videoImages }: VideoDetailType) {
+    this.video = video;
     this.videoReview = videoReview;
     this.similarVideos = similarVideos;
     this.videoKeyword = videoKeyword;

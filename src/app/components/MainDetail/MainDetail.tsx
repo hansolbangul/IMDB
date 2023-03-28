@@ -1,16 +1,14 @@
+import { Video } from "@/application/domain/video";
 import { VideoService } from "@/application/services/videoService";
 import { VideoAPIService } from "@/networks/videoAPIService";
 import Image from "next/image";
 import React, { use } from "react";
 
 type Props = {
-  id: number;
-  type: string;
+  video: Video
 };
 
-export default function MainDetail({ id, type }: Props) {
-  const service = new VideoService(new VideoAPIService());
-  const movie = use(service.getVideoDetails(id, type));
+export default function MainDetail({ video }: Props) {
 
   return (
     <div className="flex flex-col md:flex-row items-center content-center md:space-x-6">
@@ -19,7 +17,7 @@ export default function MainDetail({ id, type }: Props) {
         placeholder="blur"
         blurDataURL="/spinner.svg"
         alt="Movie poster"
-        src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path || movie.poster_path}`}
+        src={`https://image.tmdb.org/t/p/original/${video.backdrop_path || video.poster_path}`}
         width={500}
         height={300}
         style={{
@@ -28,18 +26,18 @@ export default function MainDetail({ id, type }: Props) {
         }}
       ></Image>
       <div className="p-2">
-        <h2 className="text-lg mb-3 font-bold">{movie.title || movie.name}</h2>
+        <h2 className="text-lg mb-3 font-bold">{video.title || video.name}</h2>
         <p className="text-lg mb-3">
           <span className="font-semibold mr-1">Overview: </span>
-          {movie.overview}
+          {video.overview}
         </p>
         <p className="mb-3">
           <span className="font-semibold mr-1">Date Release: </span>
-          {movie.release_date || movie.first_air_date}
+          {video.release_date || video.first_air_date}
         </p>
         <p className="mb-3">
           <span className="font-semibold mr-1">Rating: </span>
-          {movie.vote_count}
+          {video.vote_count}
         </p>
       </div>
     </div>

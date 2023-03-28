@@ -14,20 +14,6 @@ type Props = {
   };
 };
 
-// const getSearchMovie = async ({ params }: Props): Promise<Movie[]> => {
-//   const res = await fetch(
-//     `${BASE_URL}search/movie?api_key=${process.env.API_KEY}&query=${params.searchTerm}&language=ko-KR&page=1&include_adult=false`
-//   );
-
-//   if (!res.ok) {
-//     throw new Error("Error fetching data");
-//   }
-
-//   const data = await res.json();
-
-//   return data.results;
-// };
-
 export async function generateMetadata({ params, searchParams }: Props): Promise<Metadata> {
   const service = new VideoService(new VideoAPIService());
   const videos = await service.searchVideos(params.searchTerm, searchParams.type || "movie");

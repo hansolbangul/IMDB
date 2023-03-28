@@ -7,14 +7,14 @@ import { Metadata } from "next";
 type Props = {
   params: {
     type: string;
-    id: number;
+    videoId: number;
   };
 };
 
-export async function generateMetadata({ params: { id, type } }: Props): Promise<Metadata> {
+export async function generateMetadata({ params: { videoId, type } }: Props): Promise<Metadata> {
   const service = new VideoService(new VideoAPIService());
-  const video = await service.getVideoDetails(id, type);
-  const keywords = await service.getVideoKeywords(id, type);
+  const video = await service.getVideoDetails(videoId, type);
+  const keywords = await service.getVideoKeywords(videoId, type);
 
   return {
     title: "IMDB | " + video.title || video.name,
@@ -31,22 +31,16 @@ export async function generateMetadata({ params: { id, type } }: Props): Promise
   };
 }
 
-// const API_KEY = process.env.API_KEY;
-
-// const getMovie = async (movieId: number): Promise<MovieDetail> => {
-//   const res = await fetch(
-//     `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}&language=ko-KR`
-//   );
-
-//   return await res.json();
-// };
-
-export default async function MoviePage({ params: { id, type } }: Props) {
+export default async function MoviePage({ params: { videoId, type } }: Props) {
+  const service = new VideoService(new VideoAPIService());
+  const {video, videoImages, videoKeyword, videoReview, similarVideos} = await service.getVideoDetailsView(videoId, type)
+  
+  
   return (
     <div className="w-full">
       <div className="flex flex-col p-4 md:pt-8">
-        <MainDetail type={type} id={id} />
-        <Reviews id={id} type={type} />
+        <MainDetail video={video} />
+        <Reviews type={type} id={videoId} />
       </div>
     </div>
   );

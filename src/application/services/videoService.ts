@@ -13,25 +13,25 @@ export class VideoService {
     return await this.videoAPIService.searchVideos(query, type);
   }
 
-  // async getVideoDetails(videoId: number): Promise<VideoDetail> {
-  //   const [video, videoReview, videoImages, videoKeyword, similarVideos] = await Promise.all([
-  //     this.videoAPIService.getVideoDetails(videoId),
-  //     this.videoAPIService.getVideoReviews(videoId),
-  //     this.videoAPIService.getVideoImages(videoId),
-  //     this.videoAPIService.getVideoKeywords(videoId),
-  //     this.videoAPIService.getSimilarVideos(videoId),
-  //   ]);
+  async getVideoDetailsView(videoId: number, type: string): Promise<VideoDetail> {
+    const [video, videoReview, videoImages, videoKeyword, similarVideos] = await Promise.all([
+      this.videoAPIService.getVideoDetails(videoId, type),
+      this.videoAPIService.getVideoReviews(videoId, type),
+      this.videoAPIService.getVideoImages(videoId, type),
+      this.videoAPIService.getVideoKeywords(videoId, type),
+      this.videoAPIService.getSimilarVideos(videoId, type),
+    ]);
 
-  //   const videoDetail = {
-  //     ...video,
-  //     videoReview,
-  //     videoImages,
-  //     videoKeyword,
-  //     similarVideos,
-  //   };
+    const videoDetail = {
+      video,
+      videoReview,
+      videoImages,
+      videoKeyword,
+      similarVideos,
+    };
 
-  //   return videoDetail;
-  // }
+    return videoDetail;
+  }
 
   async getVideoDetails(videoId: number, type: string): Promise<Video> {
     return await this.videoAPIService.getVideoDetails(videoId, type);

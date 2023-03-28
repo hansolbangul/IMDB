@@ -30,7 +30,6 @@ export class VideoAPIService {
   }
 
   async getVideoDetails(videoId: number, type: string): Promise<Video> {
-    if (typeof videoId === "string") [];
     const url = `${this.API_BASE_URL}/${type}/${videoId}?api_key=${this.API_KEY}&language=ko-KR`;
     console.log("getVideoDetails", url);
     const response = await fetch(url);
@@ -39,7 +38,6 @@ export class VideoAPIService {
   }
 
   async getVideoReviews(videoId: number, type: string): Promise<VideoReview[]> {
-    if (typeof videoId !== "number") [];
     const url = `${this.API_BASE_URL}${type}/${videoId}/reviews?api_key=${this.API_KEY}`;
     console.log("getVideoReviews", url);
     const response = await fetch(url);
@@ -49,7 +47,6 @@ export class VideoAPIService {
   }
 
   async getVideoImages(videoId: number, type: string): Promise<VideoImages> {
-    if (typeof videoId === "string") [];
     const url = `${this.API_BASE_URL}${type}/${videoId}/images?api_key=${this.API_KEY}`;
     console.log("getVideoImages", url);
     const response = await fetch(url);
@@ -58,7 +55,6 @@ export class VideoAPIService {
   }
 
   async getVideoKeywords(videoId: number, type: string): Promise<VideoKeyword[]> {
-    if (typeof videoId === "string") [];
     const url = `${this.API_BASE_URL}${type}/${videoId}/keywords?api_key=${this.API_KEY}`;
     console.log("getVideoKeywords", url);
     const response = await fetch(url);
@@ -75,7 +71,6 @@ export class VideoAPIService {
   }
 
   async getSimilarVideos(videoId: number, type: string): Promise<SimilarVideo[]> {
-    if (typeof videoId === "string") [];
     const url = `${this.API_BASE_URL}${type}/${videoId}/similar?api_key=${this.API_KEY}`;
     console.log("getSimilarVideos", url);
     const response = await fetch(url);
